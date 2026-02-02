@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cancer Institute (WIA) Website Redesign
+
+Design mockups for the Cancer Institute (WIA), Adyar website redesign project. This Next.js application showcases multiple design variations for stakeholder review and selection.
+
+## Design Variations
+
+The project includes four distinct design approaches:
+
+- **Variation A: Minimal & Clean** - Whitespace-focused design emphasizing clarity and ease of navigation
+- **Variation B: Editorial & Content-Rich** - Magazine-style layout with rich content presentation
+- **Variation C: Modern Medical** - Contemporary healthcare aesthetic with professional feel
+- **Variation D: Bold & Dynamic** - Vibrant, engaging design with strong visual impact
+
+Each variation includes mockups for:
+- Home page
+- Department page (Medical Oncology example)
+- Doctor Profile page
+- Research page
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the mockup navigation hub.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── variation-a/        # Minimal & Clean design
+│   │   ├── home/
+│   │   ├── department/
+│   │   ├── doctor/
+│   │   └── research/
+│   ├── variation-b/        # Editorial & Content-Rich
+│   ├── variation-c/        # Modern Medical
+│   └── variation-d/        # Bold & Dynamic
+├── components/
+│   ├── MockupNav.tsx       # Shared navigation for switching between variations
+│   └── variation-a/        # Variation A specific components
+│       ├── Header.tsx
+│       ├── Footer.tsx
+│       ├── Button.tsx
+│       └── Card.tsx
+```
 
-## Learn More
+## Brand Colors
 
-To learn more about Next.js, take a look at the following resources:
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Primary Blue | `#134795` | Headers, primary actions |
+| Secondary Teal | `#23cdc0` | Accents, highlights |
+| Accent Mint | `#ebf9f9` | Backgrounds, cards |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework:** Next.js 16.1.6
+- **Styling:** Tailwind CSS 4
+- **Language:** TypeScript
+- **Font:** PT Sans Narrow
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Private - Cancer Institute (WIA), Adyar
