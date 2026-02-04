@@ -8,20 +8,19 @@ const variations = [
   { id: "a", name: "Variation A", title: "Minimal & Clean", path: "/variation-a" },
   { id: "b", name: "Variation B", title: "Editorial & Content-Rich", path: "/variation-b" },
   { id: "c", name: "Variation C", title: "Modern Medical", path: "/variation-c" },
-  { id: "d", name: "Variation D", title: "Bold & Dynamic", path: "/variation-d" },
 ];
 
 // Page types available in each variation
 const pageTypes = [
   { id: "home", name: "Home", path: "/home" },
   { id: "department", name: "Department", path: "/department" },
-  { id: "doctor-profile", name: "Doctor Profile", path: "/doctor-profile" },
+  { id: "doctor", name: "Doctor Profile", path: "/doctor" },
   { id: "research", name: "Research", path: "/research" },
 ];
 
 interface MockupNavProps {
-  variationId: "a" | "b" | "c" | "d";
-  currentPage: "home" | "department" | "doctor-profile" | "research";
+  variationId: "a" | "b" | "c";
+  currentPage: "home" | "department" | "doctor" | "research";
 }
 
 export default function MockupNav({ variationId, currentPage }: MockupNavProps) {

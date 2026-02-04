@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Institute (WIA) - Adyar, Chennai</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+        
+        .header-top {
+            background: #1e3a8a;
+            color: white;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            width: 60px;
+            height: auto;
+        }
+        
+        .logo-text h1 {
+            font-size: 20px;
+            color: #1e3a8a;
+            margin-bottom: 3px;
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .header-contact {
+            text-align: right;
+        }
+        
+        .header-contact .phone {
+            font-size: 18px;
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+        
+        .header-contact .tagline {
+            font-size: 14px;
+            color: #0d9488;
+            font-style: italic;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: #1e3a8a;
+            padding: 0;
+        }
+        
+        .nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav li {
+            position: relative;
+        }
+        
+        .nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .nav a:hover {
+            background: #0d9488;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0d9488 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .hero-tagline {
+            font-size: 24px;
+            font-style: italic;
+            color: #d97706;
+            margin-bottom: 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #d97706;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #b45309;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 60px 20px;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h3 {
+            font-size: 32px;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1e3a8a, #0d9488);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+        }
+        
+        .feature-card h4 {
+            font-size: 22px;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .feature-tagline {
+            color: #0d9488;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 60px 20px;
+            background: #1e3a8a;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-item h4 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #d97706;
+        }
+        
+        .stat-item p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 36px;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            background: linear-gradient(135deg, #f8fafc, #e5e7eb);
+            border-radius: 10px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: #f8fafc;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 4px solid #0d9488;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            border-left-width: 8px;
+        }
+        
+        .service-card h4 {
+            font-size: 24px;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .service-card a {
+            color: #0d9488;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Appointment Section */
+        .appointment {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0d9488 0%, #1e3a8a 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .appointment h3 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .appointment p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .appointment-phone {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d97706;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #d97706;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 30px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-contact {
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            Trust. Hope. Cure. | Pioneers in cancer care from prevention to palliation since 1954
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1e3a8a, #0d9488); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px;">
+                    ⚕
+                </div>
+                <div class="logo-text">
+                    <h1>Cancer Institute (WIA)</h1>
+                    <p>Adyar, Chennai | Regional Cancer Centre</p>
+                </div>
+            </div>
+            <div class="header-contact">
+                <div class="phone">+91 44 2220 9150</div>
+                <div class="tagline">Service to All</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">News & Events</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-tagline">Trust. Hope. Cure.</div>
+            <h2>Comprehensive Cancer Care Since 1954</h2>
+            <p>Pioneers in prevention to palliation. State-of-the-art multi-modality treatment with compassion and excellence. The care is free or heavily subsidised for those in need.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Make an Appointment</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h3>Our Core Pillars</h3>
+                <p>More than 95% of patients presenting with early stage cancer at the institute live longer with good quality of life</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h4>Cancer is Preventable</h4>
+                    <p>Most common cancers have known causes and can be prevented by undergoing simple tests. We offer screening programs and lifestyle guidance.</p>
+                    <div class="feature-tagline">Trust. Hope. Cure</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💚</div>
+                    <h4>Early Cancer is Curable</h4>
+                    <p>More than 95% of patients presenting with early stage cancer at our institute live longer with good quality of life than others.</p>
+                    <div class="feature-tagline">Trust. Hope. Cure</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h4>Research for Tomorrow</h4>
+                    <p>Today's research is tomorrow's treatment. We invest in contemporary research for better outcomes with advanced treatment methods.</p>
+                    <div class="feature-tagline">Trust. Hope. Cure</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h4>70+</h4>
+                    <p>Years of Service</p>
+                </div>
+                <div class="stat-item">
+                    <h4>14,000+</h4>
+                    <p>New Patients Annually</p>
+                </div>
+                <div class="stat-item">
+                    <h4>545</h4>
+                    <p>Hospital Beds</p>
+                </div>
+                <div class="stat-item">
+                    <h4>95%</h4>
+                    <p>Early Stage Survival</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>About Cancer Institute (WIA)</h3>
+                    <p>The Cancer Institute (W.I.A), also known as Adyar Cancer Institute, is a public charitable voluntary not-for-profit institution dedicated to the service of cancer patients since 1954.</p>
+                    <p>We are a Regional Cancer Centre recognized by the Government of India and the State Cancer Institute, the apex body for cancer care in Tamil Nadu. We offer ethical and state-of-the-art multi-modality treatment.</p>
+                    <p>Founded under the leadership of Dr. Muthulakshmi Reddy, our mission is to provide state-of-the-art treatment for all patients, rich or poor.</p>
+                    <a href="#" class="btn btn-primary" style="margin-top: 20px;">Read Our Story</a>
+                </div>
+                <div class="about-image">
+                    [Institution Image Placeholder]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h3>Our Services</h3>
+                <p>Comprehensive cancer care from prevention to palliation</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>Medical Oncology</h4>
+                    <p>State-of-the-art chemotherapy, immunotherapy, and targeted therapy treatments delivered by experienced oncologists with compassionate care.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <h4>Surgical Oncology</h4>
+                    <p>Advanced surgical procedures including minimally invasive and robotic surgeries performed by skilled surgical oncologists.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <h4>Radiation Oncology</h4>
+                    <p>Cutting-edge radiation therapy including IMRT, IGRT, and brachytherapy using the latest technology for precision treatment.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <h4>Preventive Oncology</h4>
+                    <p>Screening programs, early detection services, and lifestyle counseling to prevent cancer and detect it at early, curable stages.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <h4>Palliative Care</h4>
+                    <p>Compassionate end-of-life care focusing on pain management, quality of life, and support for patients and their families.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <h4>Research & Education</h4>
+                    <p>Leading cancer research and professional education including Ph.D, DM, M.Ch, MD, and various degree programs in oncology.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment">
+        <div class="container">
+            <h3>Schedule an Appointment</h3>
+            <p>Our team of experts is ready to provide you with the best possible care</p>
+            <div class="appointment-phone">+91 44 2220 9150</div>
+            <p>Extension: 105/106 | Available 24/7 for emergencies</p>
+            <a href="#" class="btn btn-primary" style="background: white; color: #1e3a8a; margin-top: 20px;">Request Appointment</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Cancer Institute (WIA)</h4>
+                    <p style="color: #9ca3af; line-height: 1.8;">
+                        No. 38, Sardar Patel Road,<br>
+                        Adyar, Chennai - 600 020<br>
+                        Tamil Nadu, India<br><br>
+                        Phone: +91 44 2220 9150<br>
+                        Email: chairman@cancerinstitutewia.org
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">News & Events</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Patient Services</h4>
+                    <ul>
+                        <li><a href="#">Make an Appointment</a></li>
+                        <li><a href="#">Patient Information</a></li>
+                        <li><a href="#">Visitor Guidelines</a></li>
+                        <li><a href="#">Online Consultation</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cancer Institute (WIA). All rights reserved. | Service to All</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

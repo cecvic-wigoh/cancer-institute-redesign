@@ -26,14 +26,6 @@ const designVariations = [
       "A contemporary healthcare aesthetic with clean lines and professional imagery. Balances warmth with clinical precision.",
     href: "/variation-c",
   },
-  {
-    id: "d",
-    name: "Variation D",
-    title: "Bold & Dynamic",
-    description:
-      "An energetic design with strong visual elements and engaging interactions. Creates a memorable, forward-thinking impression.",
-    href: "/variation-d",
-  },
 ];
 
 export default function Home() {
@@ -64,7 +56,7 @@ export default function Home() {
             Choose a Design Variation
           </h2>
           <p className="text-lg text-[var(--color-text-light)] max-w-2xl mx-auto">
-            Explore four distinct design approaches for the Cancer Institute
+            Explore three distinct design approaches for the Cancer Institute
             (WIA) website. Each variation offers a unique visual style while
             maintaining brand consistency.
           </p>

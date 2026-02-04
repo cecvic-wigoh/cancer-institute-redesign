@@ -86,7 +86,7 @@ export default function DoctorProfilePage() {
 
   return (
     <>
-      <MockupNav variationId="a" currentPage="doctor-profile" />
+      <MockupNav variationId="a" currentPage="doctor" />
 
       {/* Breadcrumb */}
       <nav className="bg-[var(--color-accent)] border-b border-[var(--color-primary)]/10">
