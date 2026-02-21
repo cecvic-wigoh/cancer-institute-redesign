@@ -7,18 +7,36 @@ const treatments = [
   "Chemotherapy",
   "Targeted Therapy",
   "Immunotherapy",
-  "Hormone Therapy",
-  "Palliative Care",
-  "Clinical Trials",
-  "Second Opinions",
-  "Genetic Counseling",
+  "Hormonal Therapy",
+  "Stem Cell Transplantation",
+  "CAR-T Cell Therapy",
+  "Precision Medicine",
+  "Palliative & Survivorship Care",
+];
+
+const conditions = [
+  "Breast Cancer",
+  "Lung Cancer",
+  "Colorectal & GI Cancers",
+  "Head and Neck Cancers",
+  "Gynecological & Genitourinary Cancers",
+  "Sarcomas & CNS Tumors",
+  "Neuroendocrine Tumors",
+  "Multiple Myeloma",
+  "Acute & Chronic Leukemias",
+  "Hodgkin & Non-Hodgkin Lymphoma",
+  "Myelodysplastic Syndromes",
+  "Pediatric Cancers (Solid Tumors, Leukemias, Brain Tumors)",
+  "Relapsed & Refractory Cancers",
+  "Stem Cell Transplant & Cellular Therapy Patients",
+  "Survivorship & Palliative Care Patients",
 ];
 
 const teamMembers = [
   { name: "Dr. Priya Sharma", title: "Head of Department", experience: "25 years", specialty: "Breast Cancer" },
   { name: "Dr. Arun Krishnan", title: "Senior Consultant", experience: "18 years", specialty: "Lung Cancer" },
   { name: "Dr. Lakshmi Venkat", title: "Consultant", experience: "12 years", specialty: "GI Oncology" },
-  { name: "Dr. Mohan Reddy", title: "Consultant", experience: "10 years", specialty: "Hematology" },
+  { name: "Dr. Mohan Reddy", title: "Consultant", experience: "10 years", specialty: "Pediatric Oncology" },
 ];
 
 const achievements = [
@@ -26,6 +44,19 @@ const achievements = [
   { value: "95%", label: "Patient Satisfaction Rate" },
   { value: "40+", label: "Clinical Trials" },
   { value: "150+", label: "Publications" },
+];
+
+const whenToVisit = [
+  "Unexplained weight loss or persistent loss of appetite",
+  "Persistent fever without clear cause",
+  "New or growing lumps or swellings",
+  "Unusual bleeding or bruising",
+  "Chronic fatigue or weakness",
+  "Persistent cough or breathlessness",
+  "Non-healing sores or ulcers",
+  "Bone pain or unexplained fractures",
+  "Neurological symptoms such as headaches or seizures",
+  "Persistent pallor, bruising, or fever in children",
 ];
 
 const relatedArticles = [
@@ -41,7 +72,7 @@ const relatedArticles = [
   },
   {
     category: "Innovation",
-    title: "AI-Powered Diagnostic Tools Transform Cancer Detection",
+    title: "CAR-T Cell Therapy: Transforming Blood Cancer Treatment",
     date: "November 2025",
   },
 ];
@@ -67,7 +98,7 @@ export default function DepartmentPage() {
               </Link>
             </li>
             <li className="mx-2 text-[var(--color-text-light)]">/</li>
-            <li className="text-[var(--color-primary)] font-bold">Medical Oncology</li>
+            <li className="text-[var(--color-primary)] font-bold">Medical Oncology & Pediatric Oncology</li>
           </ol>
         </div>
       </nav>
@@ -81,10 +112,10 @@ export default function DepartmentPage() {
                 Department
               </span>
               <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
-                Medical Oncology
+                Medical Oncology and Pediatric Oncology
               </h1>
               <p className="text-lg text-white/80 leading-relaxed mb-8">
-                Our Medical Oncology department is at the forefront of cancer treatment, offering cutting-edge therapies including immunotherapy, targeted therapy, and personalized medicine. With over 50 years of experience, we provide comprehensive care tailored to each patient.
+                Medical Oncology and Pediatric Oncology focuses on treating cancer using chemotherapy, immunotherapy, targeted therapies, hematopoietic stem cell transplant, and cellular therapy — for adults, children, and adolescents.
               </p>
               <div className="flex gap-4">
                 <Button variant="secondary" href="#">
@@ -127,35 +158,42 @@ export default function DepartmentPage() {
                 About The Department
               </span>
               <h2 className="text-3xl font-bold text-[var(--color-text-dark)] mt-2 mb-6">
-                Pioneering Cancer Treatment Since 1970
+                What is Medical and Pediatric Oncology?
               </h2>
 
               <div className="prose prose-lg max-w-none text-[var(--color-text-light)]">
                 <p>
-                  The Department of Medical Oncology at Cancer Institute (WIA) has been a leader in cancer treatment for over five decades. We were among the first in India to introduce chemotherapy protocols and have since evolved to embrace the latest advances in targeted therapy and immunotherapy.
+                  Medical and Pediatric Oncology is a specialised branch of medicine that focuses on the diagnosis, treatment, and management of cancer in adults, children, and adolescents. It deals with both solid tumors and blood-related cancers using advanced systemic therapies such as chemotherapy, targeted therapy, immunotherapy, hormonal therapy, hematopoietic stem cell transplantation, and cellular therapies.
                 </p>
                 <p>
-                  Our multidisciplinary approach ensures that each patient receives personalized care, with treatment plans developed collaboratively by oncologists, surgeons, radiation specialists, and support staff. We believe in treating the whole person, not just the disease.
+                  Oncologists work closely with surgeons, radiation specialists, pathologists, radiologists, and supportive care teams to provide comprehensive, patient-centered cancer care. The department aims to achieve cure, disease control, symptom relief, and improved quality of life through evidence-based and personalised treatment approaches.
                 </p>
                 <p>
-                  As a teaching hospital, we are committed to training the next generation of oncologists while conducting groundbreaking research that improves outcomes for patients worldwide.
+                  A medical oncologist is trained in diagnosing and treating cancer using systemic therapies. A pediatric oncologist specialises in managing cancers in children and adolescents, which require age-specific treatment protocols and dedicated supportive care.
                 </p>
               </div>
 
-              {/* Department Head Quote */}
-              <blockquote className="mt-10 p-8 bg-[var(--color-accent)] border-l-4 border-[var(--color-secondary)]">
-                <p className="text-xl italic text-[var(--color-text-dark)] leading-relaxed">
-                  &ldquo;Our mission is to provide hope and healing through innovation, compassion, and excellence in cancer care.&rdquo;
-                </p>
-                <footer className="mt-4">
-                  <cite className="not-italic font-bold text-[var(--color-primary)]">
-                    Dr. Priya Sharma
-                  </cite>
-                  <span className="text-[var(--color-text-light)] text-sm block">
-                    Head of Medical Oncology
-                  </span>
-                </footer>
-              </blockquote>
+              {/* What oncologists do */}
+              <div className="mt-10 p-8 bg-[var(--color-accent)] border-l-4 border-[var(--color-secondary)]">
+                <h3 className="font-bold text-[var(--color-text-dark)] mb-4">What Our Oncologists Do</h3>
+                <div className="grid sm:grid-cols-2 gap-2 text-sm text-[var(--color-text-light)]">
+                  {[
+                    "Evaluate and diagnose cancer",
+                    "Plan personalised treatment protocols",
+                    "Administer chemotherapy, immunotherapy & targeted therapies",
+                    "Monitor treatment response and manage side effects",
+                    "Coordinate stem cell transplantation and cellular therapy",
+                    "Provide supportive and palliative care",
+                    "Guide patients through survivorship and rehabilitation",
+                    "Participate in research and clinical trials",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <span className="text-[var(--color-secondary)] mt-0.5">★</span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Sidebar */}
@@ -201,27 +239,79 @@ export default function DepartmentPage() {
         </div>
       </section>
 
-      {/* Treatments Section */}
+      {/* Conditions Treated */}
       <section className="py-16 md:py-24 bg-[var(--color-accent)]">
+        <div className="mx-auto max-w-7xl px-4">
+          <span className="text-[var(--color-secondary)] font-bold uppercase tracking-wider text-sm">
+            Scope of Care
+          </span>
+          <h2 className="text-3xl font-bold text-[var(--color-text-dark)] mt-2 mb-10">
+            Common Conditions Treated
+          </h2>
+          <div className="grid md:grid-cols-3 gap-3">
+            {conditions.map((condition, index) => (
+              <div
+                key={index}
+                className="bg-white p-4 border-l-4 border-[var(--color-secondary)] text-sm font-medium text-[var(--color-text-dark)]"
+              >
+                {condition}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Treatments Section */}
+      <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4">
           <span className="text-[var(--color-secondary)] font-bold uppercase tracking-wider text-sm">
             What We Offer
           </span>
           <h2 className="text-3xl font-bold text-[var(--color-text-dark)] mt-2 mb-10">
-            Treatments & Services
+            Treatment Options
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {treatments.map((treatment, index) => (
               <div
                 key={index}
-                className="bg-white p-6 border-l-4 border-[var(--color-secondary)] hover:shadow-md transition-shadow"
+                className="bg-[var(--color-accent)] p-6 border-l-4 border-[var(--color-secondary)] hover:shadow-md transition-shadow"
               >
                 <span className="text-[var(--color-primary)] font-bold">
                   {treatment}
                 </span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* When to Visit */}
+      <section className="py-16 md:py-24 bg-[var(--color-primary)] text-white">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <span className="text-[var(--color-secondary)] font-bold uppercase tracking-wider text-sm">
+                Warning Signs
+              </span>
+              <h2 className="text-3xl font-bold mt-2 mb-6">
+                When Should You Visit the Oncology Department?
+              </h2>
+              <p className="text-white/80 leading-relaxed mb-8">
+                Early consultation helps in timely diagnosis and significantly improves treatment outcomes. If you or your child experience any of the following symptoms, please seek an oncology consultation promptly.
+              </p>
+              <Button variant="secondary" href="#">
+                Book Consultation Now
+              </Button>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {whenToVisit.map((symptom, index) => (
+                <div key={index} className="flex items-start gap-3 bg-white/10 p-3 rounded">
+                  <div className="w-2 h-2 rounded-full bg-[var(--color-secondary)] flex-shrink-0 mt-1.5" />
+                  <span className="text-sm text-white/90">{symptom}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -247,15 +337,8 @@ export default function DepartmentPage() {
             {teamMembers.map((member, index) => (
               <Link key={index} href="/variation-b/doctor" className="group">
                 <Card variant="default" padding="md">
-                  {/* Photo placeholder */}
-                  <div className="aspect-square bg-[var(--color-accent)] mb-4 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-[var(--color-primary)]/20 rounded-full flex items-center justify-center">
-                        <svg className="w-8 h-8 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                      </div>
-                    </div>
+                  <div className="aspect-square mb-4 relative overflow-hidden">
+                    <img src="/sample_doc.png" alt={member.name} className="w-full h-full object-cover object-top" />
                   </div>
                   <h3 className="font-bold text-[var(--color-text-dark)] group-hover:text-[var(--color-primary)] transition-colors">
                     {member.name}
@@ -285,7 +368,6 @@ export default function DepartmentPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {relatedArticles.map((article, index) => (
               <article key={index} className="group cursor-pointer">
-                {/* Image placeholder */}
                 <div className="aspect-video bg-white/10 mb-4 relative overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <svg className="w-10 h-10 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">

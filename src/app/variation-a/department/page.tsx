@@ -4,14 +4,62 @@ import Button from "@/components/variation-a/Button";
 import Card from "@/components/variation-a/Card";
 
 const services = [
-  "Chemotherapy (Conventional and Targeted)",
+  "Chemotherapy",
+  "Targeted Therapy",
   "Immunotherapy",
-  "Hormone Therapy",
+  "Hormonal Therapy",
+  "Oral Anticancer Medications",
+  "Hematopoietic Stem Cell Transplantation",
+  "Cellular Therapies (CAR-T)",
+  "Precision Medicine",
   "Palliative Care",
+  "Supportive & Symptom Management",
   "Clinical Trials Access",
-  "Second Opinion Services",
-  "Genetic Counseling",
-  "Supportive Care Programs",
+  "Survivorship & Long-term Follow-up",
+];
+
+const conditions = [
+  "Breast Cancer",
+  "Lung Cancer",
+  "Colorectal & Gastrointestinal Cancers",
+  "Head and Neck Cancers",
+  "Gynecological & Genitourinary Cancers",
+  "Sarcomas & Central Nervous System Tumors",
+  "Neuroendocrine Tumors",
+  "Multiple Myeloma & Plasma Cell Disorders",
+  "Acute & Chronic Leukemias",
+  "Hodgkin & Non-Hodgkin Lymphoma",
+  "Myelodysplastic Syndromes",
+  "Pediatric Solid Tumors, Leukemias & Lymphomas",
+  "Relapsed & Refractory Cancers",
+  "Patients Undergoing Stem Cell Transplantation & Cellular Therapy",
+  "Supportive, Survivorship & Palliative Care Patients",
+];
+
+const diagnostics = [
+  "Detailed medical history and physical examination",
+  "Imaging: X-ray, CT, MRI, PET-CT, and ultrasound",
+  "Histopathological examination and biopsy",
+  "Tumor marker testing",
+  "Bone marrow examination",
+  "Flow cytometry",
+  "Molecular and genetic testing",
+  "Cytogenetic and genomic analysis",
+];
+
+const whenToVisit = [
+  "Unexplained weight loss or persistent loss of appetite",
+  "Persistent fever without clear cause",
+  "New or growing lumps or swellings",
+  "Unusual bleeding or bruising",
+  "Chronic fatigue or weakness",
+  "Changes in bowel or bladder habits",
+  "Persistent cough or breathlessness",
+  "Non-healing sores or ulcers",
+  "Difficulty swallowing or hoarseness",
+  "Bone pain or unexplained fractures",
+  "Neurological symptoms such as headaches or seizures",
+  "Persistent pallor, bruising, or fever in children",
 ];
 
 const teamMembers = [
@@ -58,7 +106,7 @@ export default function DepartmentPage() {
               </Link>
             </li>
             <li className="mx-2 text-[var(--color-text-light)]">/</li>
-            <li className="text-[var(--color-primary)] font-medium">Medical Oncology</li>
+            <li className="text-[var(--color-primary)] font-medium">Medical Oncology & Pediatric Oncology</li>
           </ol>
         </div>
       </nav>
@@ -68,11 +116,11 @@ export default function DepartmentPage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid lg:grid-cols-3 gap-10 items-center">
             <div className="lg:col-span-2">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                Medical Oncology
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                Department of Medical Oncology and Pediatric Oncology
               </h1>
               <p className="mt-4 text-lg text-white/80 leading-relaxed">
-                Our Medical Oncology department offers comprehensive cancer treatment using the latest advances in chemotherapy, immunotherapy, targeted therapy, and personalized medicine. We provide compassionate care tailored to each patient&apos;s unique needs.
+                Medical Oncology and Pediatric Oncology focuses on treating cancer using chemotherapy, immunotherapy, targeted therapies, hematopoietic stem cell transplant, and cellular therapy.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button variant="secondary" href="#">
@@ -84,20 +132,14 @@ export default function DepartmentPage() {
               </div>
             </div>
             <div className="hidden lg:block">
-              {/* Department head photo placeholder */}
-              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <div className="aspect-square bg-white/10 rounded-lg flex items-center justify-center mb-4">
-                  <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
-                    <svg className="w-12 h-12 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
+              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm space-y-3">
+                <p className="text-[var(--color-secondary)] font-bold uppercase tracking-wider text-xs">Key Therapies</p>
+                {["Chemotherapy", "Immunotherapy", "Targeted Therapy", "Stem Cell Transplant", "CAR-T Cell Therapy", "Precision Medicine"].map((t) => (
+                  <div key={t} className="flex items-center gap-2 text-sm text-white/90">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)]" />
+                    {t}
                   </div>
-                </div>
-                <div className="text-center">
-                  <h3 className="font-bold text-lg">Dr. Priya Sharma</h3>
-                  <p className="text-white/70 text-sm">Head of Department</p>
-                  <p className="text-[var(--color-secondary)] text-sm mt-1">MBBS, MD, DM (Oncology)</p>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -107,58 +149,85 @@ export default function DepartmentPage() {
       {/* About This Department */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="text-3xl font-bold text-[var(--color-text-dark)]">
-                About This Department
+                What is Medical and Pediatric Oncology?
               </h2>
               <div className="mt-6 space-y-4 text-[var(--color-text-light)] leading-relaxed">
                 <p>
-                  The Department of Medical Oncology at Cancer Institute (WIA) is one of the largest and most experienced centers for cancer treatment in India. Established in 1970, the department has been at the forefront of medical oncology, treating thousands of patients annually.
+                  Medical and Pediatric Oncology is a specialised branch of medicine that focuses on the diagnosis, treatment, and management of cancer in adults, children, and adolescents. It deals with both solid tumors and blood-related cancers using advanced systemic therapies such as chemotherapy, targeted therapy, immunotherapy, hormonal therapy, hematopoietic stem cell transplantation, and cellular therapies.
                 </p>
                 <p>
-                  Our team of highly qualified oncologists work collaboratively with surgical, radiation oncology, and other specialists to provide comprehensive, multidisciplinary care. We specialize in treating all types of solid tumors and hematological malignancies.
-                </p>
-                <p>
-                  The department is actively involved in clinical research and offers access to cutting-edge therapies through clinical trials. Our patient-centric approach ensures that each treatment plan is personalized to achieve the best possible outcomes.
+                  Oncologists work closely with surgeons, radiation specialists, pathologists, radiologists, and supportive care teams to provide comprehensive, patient-centered cancer care. The department aims to achieve cure, disease control, symptom relief, and improved quality of life through evidence-based and personalised treatment approaches.
                 </p>
               </div>
             </div>
             <div>
-              {/* Image placeholder */}
-              <div className="aspect-[4/3] bg-[var(--color-accent)] rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto bg-[var(--color-primary)]/20 rounded-full flex items-center justify-center mb-4">
-                    <svg className="w-10 h-10 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              <h3 className="text-xl font-bold text-[var(--color-text-dark)] mb-4">Diagnostic Techniques</h3>
+              <ul className="space-y-3">
+                {diagnostics.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-[var(--color-secondary)] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                  </div>
-                  <p className="text-[var(--color-text-light)]">Department Image Placeholder</p>
-                </div>
-              </div>
+                    <span className="text-[var(--color-text-light)] text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Services */}
+      {/* Conditions Treated */}
       <section className="py-16 md:py-20 bg-[var(--color-accent)]">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-3xl font-bold text-[var(--color-text-dark)] mb-10">
-            Our Services
+          <h2 className="text-3xl font-bold text-[var(--color-text-dark)] mb-4">
+            Common Conditions Treated
           </h2>
+          <p className="text-[var(--color-text-light)] mb-10 max-w-2xl">
+            The Department of Medical and Pediatric Oncology manages a wide range of cancers and related conditions, including:
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {conditions.map((condition, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 bg-white p-4 rounded-lg border border-[var(--color-primary)]/10"
+              >
+                <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[var(--color-secondary)]/20 flex items-center justify-center">
+                  <svg className="w-3.5 h-3.5 text-[var(--color-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-[var(--color-text-dark)] text-sm font-medium">{condition}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Treatment Options */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-3xl font-bold text-[var(--color-text-dark)] mb-4">
+            Treatment Options
+          </h2>
+          <p className="text-[var(--color-text-light)] mb-10 max-w-2xl">
+            Treatment is tailored to the type, stage, and biology of cancer, as well as the patient&apos;s age and overall health.
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 bg-white p-4 rounded-lg border border-[var(--color-primary)]/10"
+                className="flex items-center gap-3 bg-[var(--color-accent)] p-4 rounded-lg border border-[var(--color-primary)]/10"
               >
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-secondary)]/20 flex items-center justify-center">
                   <svg className="w-4 h-4 text-[var(--color-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-[var(--color-text-dark)] font-medium">{service}</span>
+                <span className="text-[var(--color-text-dark)] font-medium text-sm">{service}</span>
               </div>
             ))}
           </div>
@@ -166,7 +235,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* Our Team */}
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 bg-[var(--color-accent)]">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
             <div>
@@ -182,11 +251,8 @@ export default function DepartmentPage() {
               <Link key={index} href="/variation-a/doctor">
                 <Card padding="md">
                   <div className="flex items-center gap-4">
-                    {/* Photo placeholder */}
-                    <div className="flex-shrink-0 w-16 h-16 bg-[var(--color-accent)] rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden">
+                      <img src="/sample_doc.png" alt={member.name} className="w-full h-full object-cover object-top" />
                     </div>
                     <div>
                       <h3 className="font-bold text-[var(--color-text-dark)]">{member.name}</h3>
@@ -202,7 +268,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* Facilities & Equipment */}
-      <section className="py-16 md:py-20 bg-[var(--color-accent)]">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-3xl font-bold text-[var(--color-text-dark)] mb-10">
             Facilities & Equipment
@@ -224,16 +290,30 @@ export default function DepartmentPage() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Image gallery placeholder */}
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="aspect-square bg-[var(--color-primary)]/10 rounded-lg flex items-center justify-center">
-                <svg className="w-8 h-8 text-[var(--color-primary)]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-            ))}
+      {/* When to Visit */}
+      <section className="py-16 md:py-20 bg-[var(--color-accent)]">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-3xl font-bold text-[var(--color-text-dark)] mb-4">
+                When Should You Visit?
+              </h2>
+              <p className="text-[var(--color-text-light)] leading-relaxed mb-8">
+                You should consider consulting an oncologist if you experience any of the following symptoms. Early consultation helps in timely diagnosis and improves treatment outcomes.
+              </p>
+              <Button href="#">Book an Appointment</Button>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {whenToVisit.map((symptom, index) => (
+                <div key={index} className="flex items-start gap-3 bg-white p-3 rounded-lg border border-[var(--color-primary)]/10">
+                  <div className="w-2 h-2 rounded-full bg-[var(--color-secondary)] flex-shrink-0 mt-1.5" />
+                  <span className="text-sm text-[var(--color-text-dark)]">{symptom}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -282,7 +362,7 @@ export default function DepartmentPage() {
               <Card padding="lg" hover={false} className="bg-[var(--color-primary)] text-white">
                 <h3 className="font-bold text-xl mb-4">Book an Appointment</h3>
                 <p className="text-white/80 text-sm mb-6">
-                  Schedule a consultation with our medical oncology specialists. We&apos;re here to provide the best care for you.
+                  Schedule a consultation with our medical and pediatric oncology specialists. We&apos;re here to provide the best care for you.
                 </p>
                 <Button variant="secondary" href="#" className="w-full">
                   Book Now

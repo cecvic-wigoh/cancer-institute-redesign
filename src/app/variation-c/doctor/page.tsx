@@ -9,34 +9,39 @@ import Card from "@/components/variation-c/Card";
 const tabs = ["About", "Experience", "Publications", "Reviews"];
 
 const quickInfo = [
-  { label: "Experience", value: "25+ Years" },
-  { label: "Specialty", value: "Breast & Lung Cancer" },
-  { label: "Languages", value: "English, Tamil, Hindi" },
-  { label: "Rating", value: "4.9/5" },
+  { label: "Experience", value: "20+ Years" },
+  { label: "Specialty", value: "Medical Mycology" },
+  { label: "Languages", value: "English, Tamil" },
+  { label: "GenBank", value: "21 Sequences" },
 ];
 
 const education = [
-  { year: "2010", degree: "DM (Medical Oncology)", school: "AIIMS, New Delhi" },
-  { year: "2007", degree: "MD (Internal Medicine)", school: "CMC, Vellore" },
-  { year: "2003", degree: "MBBS", school: "Stanley Medical College" },
+  { year: "2020", degree: "M.D. (Microbiology)", school: "Sri Ramachandra University (2016–2020)" },
+  { year: "2019", degree: "Ph.D. (Dermato-Mycology)", school: "Sri Ramachandra Medical College (2016–2019)" },
+  { year: "2011", degree: "Ph.D. (Dermato-Mycology)", school: "Madras Medical College (2009–2011)" },
+  { year: "2007", degree: "M.B.B.S", school: "The Tamil Nadu Dr. M.G.R. Medical University (2001–2007)" },
 ];
 
 const experience = [
-  { period: "2015 - Present", role: "Head of Department", org: "Cancer Institute (WIA)" },
-  { period: "2012 - 2015", role: "Senior Consultant", org: "Cancer Institute (WIA)" },
-  { period: "2010 - 2012", role: "Consultant", org: "Tata Memorial Hospital" },
+  { period: "Current", role: "Lab Director & Hospital Infection Control Officer", org: "Parvathy Multispecialty Hospital, Chennai" },
+  { period: "Previous", role: "Assistant Professor, Dept. of Microbiology", org: "Vels Medical College, Chennai" },
+  { period: "Previous", role: "Consultant Microbiologist & Molecular Biologist", org: "Medall Labs Pvt. Ltd., Chennai" },
+  { period: "Previous", role: "Consultant Molecular Biologist & Microbiologist", org: "Lal Path Labs Pvt. Ltd., Chennai" },
+  { period: "Previous", role: "Chief of Laboratory & Infection Controller", org: "Kedar Hospitals, Mugalivakkam, Chennai" },
+  { period: "Previous", role: "Senior Resident (Microbiology & Molecular Mycology)", org: "Sri Ramachandra Institute of Higher Education and Research" },
 ];
 
 const publications = [
-  { title: "Immunotherapy in Triple-Negative Breast Cancer", journal: "J Clin Oncol", year: "2025", citations: 45 },
-  { title: "Targeted Therapy in EGFR-Mutant Lung Cancer", journal: "Lancet Oncol", year: "2024", citations: 78 },
-  { title: "Novel Chemotherapy Regimens and QoL", journal: "Ann Oncol", year: "2024", citations: 32 },
+  { title: "Epidemiological Pattern of Malassezia, its Phenotypic Identification and Antifungal Susceptibility Profile to Azoles by Broth Microdilution", journal: "Indian J Med Microbiol", year: "2020", citations: 32 },
+  { title: "Phylogenetic Analysis, Molecular Identification and Antifungal Susceptibility Profile of Malassezia from Skin Samples in South India", journal: "Indian J Med Microbiol", year: "2021", citations: 18 },
+  { title: "Anti-fungal Susceptibility of Malassezia to Azoles and Phylogenetic Analysis by Multi-Locus Sequence Typing", journal: "Med Mycology", year: "2022", citations: 14 },
+  { title: "Rare Isolate of Stephanoascus ciferrii from Aural Discharge of Post-mastoidectomy Patient – A Case Report", journal: "J Clin Diagnostic Research", year: "2019", citations: 9 },
 ];
 
 const reviews = [
-  { initials: "RK", name: "Ramesh K.", rating: 5, date: "Jan 2026", text: "Dr. Sharma is an exceptional doctor. Her thorough approach and genuine care made my treatment journey bearable." },
-  { initials: "SM", name: "Saritha M.", rating: 5, date: "Dec 2025", text: "Excellent care from start to finish. She explained everything clearly and was always available for questions." },
-  { initials: "PV", name: "Prakash V.", rating: 5, date: "Nov 2025", text: "Professional, knowledgeable, and compassionate. I highly recommend Dr. Sharma to anyone seeking cancer care." },
+  { initials: "RK", name: "Ramesh K.", rating: 5, date: "Jan 2026", text: "Dr. Nancy is an exceptional doctor. Her thorough approach and genuine care made my diagnosis journey much easier to navigate." },
+  { initials: "SM", name: "Saritha M.", rating: 5, date: "Dec 2025", text: "Excellent care from start to finish. She explained every test result clearly and was always available for questions." },
+  { initials: "PV", name: "Prakash V.", rating: 5, date: "Nov 2025", text: "Professional, knowledgeable, and compassionate. I highly recommend Dr. Nancy to anyone needing microbiology consultation." },
 ];
 
 export default function DoctorProfilePage() {
@@ -62,7 +67,7 @@ export default function DoctorProfilePage() {
               </Link>
             </li>
             <li className="text-gray-300">/</li>
-            <li className="text-[var(--color-primary)] font-medium">Dr. Priya Sharma</li>
+            <li className="text-[var(--color-primary)] font-medium">Dr. R. Packia Nancy</li>
           </ol>
         </div>
       </nav>
@@ -74,12 +79,12 @@ export default function DoctorProfilePage() {
             {/* Photo & Quick Actions */}
             <div className="text-center lg:text-left">
               <div className="inline-block relative">
-                <div className="w-48 h-48 mx-auto lg:mx-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
-                    <svg className="w-10 h-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </div>
+                <div className="w-48 h-48 mx-auto lg:mx-0 rounded-2xl overflow-hidden">
+                  <img
+                    src="/sample_doc.png"
+                    alt="Dr. R. Packia Nancy"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
                 <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:translate-x-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
                   Accepting Patients
@@ -100,18 +105,18 @@ export default function DoctorProfilePage() {
             <div className="lg:col-span-3">
               <div className="flex flex-wrap items-center gap-2 mb-2">
                 <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-xs font-semibold rounded-full">
-                  Head of Department
+                  Consultant Microbiologist
                 </span>
                 <span className="px-3 py-1 bg-[var(--color-secondary)]/20 text-[var(--color-secondary)] text-xs font-semibold rounded-full">
-                  Medical Oncology
+                  Microbiology
                 </span>
               </div>
 
               <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-text-dark)]">
-                Dr. Priya Sharma
+                Dr. R. Packia Nancy
               </h1>
               <p className="mt-2 text-[var(--color-text-light)]">
-                MBBS, MD (Internal Medicine), DM (Medical Oncology)
+                M.B.B.S, D.L.O, M.D. (Microbiology), Ph.D. (Dermato-Mycology)
               </p>
 
               {/* Quick Info Grid */}
@@ -126,12 +131,12 @@ export default function DoctorProfilePage() {
 
               {/* Bio */}
               <p className="mt-8 text-[var(--color-text-light)] leading-relaxed">
-                Dr. Priya Sharma is a distinguished medical oncologist with over 25 years of experience. As Head of Medical Oncology at Cancer Institute (WIA), she leads a team dedicated to providing cutting-edge cancer care. Her research has been published in leading international journals and she is recognized globally for her contributions to breast and lung cancer treatment.
+                Dr. R. Packia Nancy is an experienced medical microbiologist specializing in medical mycology, molecular diagnostics, and infection control. She completed her postgraduate training at Sri Ramachandra University and her specialization in dermato-mycology from Madras Medical College. She has published several research papers, contributed 21 gene sequences to GenBank, and received multiple national awards for academic and research excellence.
               </p>
 
               {/* Expertise Tags */}
               <div className="mt-6 flex flex-wrap gap-2">
-                {["Breast Cancer", "Lung Cancer", "Immunotherapy", "Targeted Therapy", "Clinical Trials"].map((tag) => (
+                {["Medical Mycology", "Molecular Diagnostics", "Infection Control", "Dermato-Mycology", "Antimicrobial Stewardship"].map((tag) => (
                   <span key={tag} className="px-4 py-2 bg-[var(--color-accent)] text-[var(--color-primary)] text-sm font-medium rounded-full">
                     {tag}
                   </span>
@@ -172,17 +177,17 @@ export default function DoctorProfilePage() {
               {activeTab === "About" && (
                 <Card variant="elevated" padding="lg" rounded="2xl">
                   <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mb-6">
-                    About Dr. Sharma
+                    About Dr. Nancy
                   </h2>
                   <div className="prose max-w-none text-[var(--color-text-light)]">
                     <p>
-                      Dr. Priya Sharma has dedicated her career to improving cancer treatment outcomes through clinical excellence and research. After completing her DM in Medical Oncology from AIIMS, she joined Cancer Institute (WIA) where she has been instrumental in establishing protocols for immunotherapy and targeted therapy.
+                      Dr. R. Packia Nancy has dedicated her career to advancing diagnostic microbiology through clinical excellence and research. After completing her M.D. in Microbiology from Sri Ramachandra University, she has served across leading hospitals and diagnostic laboratories in Chennai — from Lab Director at Parvathy Multispecialty Hospital to faculty at Vels Medical College.
                     </p>
                     <p>
-                      Her patient-centered approach combines the latest medical advances with compassionate care. Dr. Sharma is known for taking time to explain treatment options thoroughly, ensuring patients and families understand every aspect of their care journey.
+                      Her research is centred on Malassezia biology — covering phylogenetic analysis, antifungal susceptibility testing by broth microdilution, and multi-locus sequence typing (MLST). She has submitted 21 gene sequences to GenBank with official accession numbers and presented her work at national and international scientific congresses including the International Malassezia Workshop in Utrecht.
                     </p>
                     <p>
-                      As a researcher, she has published over 50 papers in peer-reviewed journals and is actively involved in multiple clinical trials. Her work has contributed to significant advances in treating triple-negative breast cancer and EGFR-mutant lung cancer.
+                      As an ISO 15189 Certified Auditor and CAHO Certified Infection Control professional, Dr. Nancy brings deep expertise in quality management, antimicrobial stewardship, and laboratory governance to every institution she serves.
                     </p>
                   </div>
 
@@ -194,19 +199,25 @@ export default function DoctorProfilePage() {
                       <svg className="w-5 h-5 text-[var(--color-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      Fellow, European Society for Medical Oncology (ESMO)
+                      Member – International Society for Human and Animal Mycology (ISHAM)
                     </li>
                     <li className="flex items-center gap-2">
                       <svg className="w-5 h-5 text-[var(--color-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      Member, American Society of Clinical Oncology (ASCO)
+                      Member – International Malassezia Working Group
                     </li>
                     <li className="flex items-center gap-2">
                       <svg className="w-5 h-5 text-[var(--color-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      Fellow, Indian College of Physicians
+                      ISO 15189 Certified Auditor
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-[var(--color-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      CAHO Certified Infection Control (Basic and Advanced)
                     </li>
                   </ul>
                 </Card>
@@ -259,7 +270,7 @@ export default function DoctorProfilePage() {
               {activeTab === "Publications" && (
                 <Card variant="elevated" padding="lg" rounded="2xl">
                   <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mb-6">
-                    Recent Publications
+                    Selected Publications
                   </h2>
                   <div className="space-y-4">
                     {publications.map((pub, index) => (
@@ -277,7 +288,7 @@ export default function DoctorProfilePage() {
                     ))}
                   </div>
                   <Button variant="ghost" href="#" className="mt-6">
-                    View All 50+ Publications →
+                    View All 7+ Publications →
                   </Button>
                 </Card>
               )}
@@ -296,7 +307,7 @@ export default function DoctorProfilePage() {
                           </svg>
                         ))}
                       </div>
-                      <span className="font-bold">4.9</span>
+                      <span className="font-bold">5.0</span>
                       <span className="text-[var(--color-text-light)] text-sm">({reviews.length} reviews)</span>
                     </div>
                   </div>
@@ -345,8 +356,8 @@ export default function DoctorProfilePage() {
                     <p className="font-bold">9:00 AM - 4:00 PM</p>
                   </div>
                   <div>
-                    <span className="text-white/70">Location</span>
-                    <p className="font-bold">Main Building, Room 204</p>
+                    <span className="text-white/70">Department</span>
+                    <p className="font-bold">Microbiology</p>
                   </div>
                 </div>
                 <Button variant="secondary" href="#" className="w-full mt-6">
@@ -371,7 +382,7 @@ export default function DoctorProfilePage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <span className="text-[var(--color-text-dark)]">dr.sharma@ciwia.org</span>
+                    <span className="text-[var(--color-text-dark)]">dr.nancy@ciwia.org</span>
                   </div>
                 </div>
               </Card>
