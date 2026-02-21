@@ -178,14 +178,14 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── QUICK NAV (anchor links) ── */}
-      <section className="bg-white border-b border-[var(--color-primary)]/10 sticky top-0 z-40">
+      <section className="bg-[var(--color-primary)] sticky top-0 z-40 shadow-md">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex gap-1 overflow-x-auto">
             {["Overview", "Conditions", "Treatments", "Diagnostics", "When to Visit", "Our Team"].map((label) => (
               <a
                 key={label}
                 href={`#${label.toLowerCase().replace(/ /g, "-")}`}
-                className="px-5 py-4 text-sm font-medium whitespace-nowrap text-[var(--color-text-light)] hover:text-[var(--color-primary)] border-b-2 border-transparent hover:border-[var(--color-secondary)] transition-colors"
+                className="px-5 py-4 text-sm font-semibold whitespace-nowrap text-white/70 hover:text-white border-b-3 border-transparent hover:border-[var(--color-secondary)] hover:bg-white/10 transition-colors"
               >
                 {label}
               </a>

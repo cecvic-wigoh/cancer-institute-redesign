@@ -221,8 +221,25 @@ export default function DepartmentPage() {
         </div>
       </section>
 
+      {/* ── QUICK NAV (anchor links) ── */}
+      <section className="bg-[var(--color-primary)] sticky top-0 z-40 shadow-lg">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex gap-1 overflow-x-auto">
+            {["Overview", "Conditions", "Treatments", "Diagnostics", "When to Visit", "Our Team"].map((label) => (
+              <a
+                key={label}
+                href={`#${label.toLowerCase().replace(/ /g, "-")}`}
+                className="px-5 py-4 text-sm font-semibold whitespace-nowrap text-white/70 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── OVERVIEW ── */}
-      <section className="py-20 bg-white">
+      <section id="overview" className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -284,7 +301,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── CONDITIONS TREATED ── */}
-      <section className="py-20 bg-[var(--color-accent)]">
+      <section id="conditions" className="py-20 bg-[var(--color-accent)]">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-14">
             <span className="text-[var(--color-secondary)] font-semibold">Scope of Care</span>
@@ -312,7 +329,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── TREATMENT OPTIONS ── */}
-      <section className="py-20 bg-white">
+      <section id="treatments" className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-14">
             <span className="text-[var(--color-secondary)] font-semibold">Treatment Options</span>
@@ -336,7 +353,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── DIAGNOSTIC TECHNIQUES ── */}
-      <section className="py-20 bg-[var(--color-accent)]">
+      <section id="diagnostics" className="py-20 bg-[var(--color-accent)]">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -378,7 +395,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── WHEN TO VISIT ── */}
-      <section className="py-20 bg-[var(--color-primary)] text-white">
+      <section id="when-to-visit" className="py-20 bg-[var(--color-primary)] text-white">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid lg:grid-cols-5 gap-12 items-start">
             <div className="lg:col-span-2">
@@ -440,7 +457,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── OUR TEAM ── */}
-      <section className="py-20 bg-[var(--color-accent)]">
+      <section id="our-team" className="py-20 bg-[var(--color-accent)]">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14">
             <div>

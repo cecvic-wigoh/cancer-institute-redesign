@@ -147,9 +147,6 @@ export default function DoctorProfilePage() {
                 <Button href="#">
                   Book Appointment
                 </Button>
-                <Button variant="outline" href="#">
-                  Download CV
-                </Button>
                 <Button variant="text" href="#">
                   Share Profile
                 </Button>

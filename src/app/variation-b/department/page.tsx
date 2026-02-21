@@ -177,8 +177,25 @@ export default function DepartmentPage() {
         </div>
       </section>
 
+      {/* ── QUICK NAV (anchor links) ── */}
+      <section className="bg-[var(--color-text-dark)] sticky top-0 z-40 shadow-md border-t-4 border-[var(--color-secondary)]">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex gap-0 overflow-x-auto">
+            {["Overview", "Conditions", "Treatments", "Diagnostics", "When to Visit", "Our Team"].map((label) => (
+              <a
+                key={label}
+                href={`#${label.toLowerCase().replace(/ /g, "-")}`}
+                className="px-6 py-4 text-sm font-bold uppercase tracking-wider whitespace-nowrap text-white/60 hover:text-[var(--color-secondary)] hover:bg-white/5 border-b-3 border-transparent hover:border-[var(--color-secondary)] transition-colors"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── OVERVIEW ── */}
-      <section className="py-16 md:py-24">
+      <section id="overview" className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
@@ -273,7 +290,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── CONDITIONS TREATED ── */}
-      <section className="py-16 md:py-24 bg-[var(--color-accent)]">
+      <section id="conditions" className="py-16 md:py-24 bg-[var(--color-accent)]">
         <div className="mx-auto max-w-7xl px-4">
           <span className="text-[var(--color-secondary)] font-bold uppercase tracking-wider text-sm">Scope of Care</span>
           <h2 className="text-3xl font-bold text-[var(--color-text-dark)] mt-2 mb-10">Common Conditions Treated</h2>
@@ -297,7 +314,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── TREATMENT OPTIONS ── */}
-      <section className="py-16 md:py-24">
+      <section id="treatments" className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4">
           <span className="text-[var(--color-secondary)] font-bold uppercase tracking-wider text-sm">What We Offer</span>
           <h2 className="text-3xl font-bold text-[var(--color-text-dark)] mt-2 mb-4">Treatment Options</h2>
@@ -316,7 +333,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── DIAGNOSTIC TECHNIQUES ── */}
-      <section className="py-16 md:py-24 bg-[var(--color-accent)]">
+      <section id="diagnostics" className="py-16 md:py-24 bg-[var(--color-accent)]">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -351,7 +368,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── WHEN TO VISIT ── */}
-      <section className="py-16 md:py-24 bg-[var(--color-primary)] text-white">
+      <section id="when-to-visit" className="py-16 md:py-24 bg-[var(--color-primary)] text-white">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid lg:grid-cols-5 gap-12 items-start">
             <div className="lg:col-span-2">
@@ -409,7 +426,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* ── OUR TEAM ── */}
-      <section className="py-16 md:py-24 bg-[var(--color-accent)]">
+      <section id="our-team" className="py-16 md:py-24 bg-[var(--color-accent)]">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-end justify-between mb-10">
             <div>
