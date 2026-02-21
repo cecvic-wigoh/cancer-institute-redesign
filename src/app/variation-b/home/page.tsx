@@ -112,9 +112,9 @@ const departments = [
 ];
 
 const featuredDoctors = [
-  { name: "Dr. Priya Sharma", title: "Head, Medical Oncology", specialty: "Breast & Lung Cancer" },
-  { name: "Dr. Rajesh Kumar", title: "Chief of Surgery", specialty: "GI Oncology" },
-  { name: "Dr. Anitha Rajan", title: "Director, Radiation", specialty: "Brain Tumors" },
+  { name: "Dr. Priya Sharma", title: "Head, Medical Oncology", specialty: "Breast & Lung Cancer", image: "/sample_doc.png" },
+  { name: "Dr. Rajesh Kumar", title: "Chief of Surgery", specialty: "GI Oncology", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" },
+  { name: "Dr. Anitha Rajan", title: "Director, Radiation", specialty: "Brain Tumors", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" },
 ];
 
 const publications = [
@@ -154,8 +154,16 @@ export default function HomePage() {
       <MockupNav variationId="b" currentPage="home" />
 
       {/* Hero - Editorial Lead Story */}
-      <section className="bg-[var(--color-primary)]">
-        <div className="mx-auto max-w-7xl">
+      <section className="bg-[var(--color-primary)] relative overflow-hidden">
+        {/* Background image overlay */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1600&q=80"
+            alt=""
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
+        <div className="mx-auto max-w-7xl relative">
           <div className="grid lg:grid-cols-3">
             {/* Featured Story */}
             <div className="lg:col-span-2 p-8 lg:p-12 text-white">
@@ -211,6 +219,14 @@ export default function HomePage() {
 
             {/* Side Stories */}
             <div className="bg-[var(--color-text-dark)] p-6 lg:p-8">
+              {/* Campus Image */}
+              <div className="mb-6 -mx-6 -mt-6 lg:-mx-8 lg:-mt-8">
+                <img
+                  src="https://www.vaidam.com/sites/default/files/cancer_institute_wia_adyar_chennai-home.jpg"
+                  alt="Cancer Institute (WIA) Adyar, Chennai - main building"
+                  className="w-full h-40 object-cover"
+                />
+              </div>
               <h2 className="text-[var(--color-secondary)] font-bold uppercase tracking-wider text-sm mb-6 pb-2 border-b border-white/20">
                 Top Stories
               </h2>
@@ -320,15 +336,13 @@ export default function HomePage() {
             {featuredDoctors.map((doctor, index) => (
               <Link key={index} href="/variation-b/doctor" className="group">
                 <Card variant="default" padding="lg">
-                  {/* Photo placeholder */}
-                  <div className="aspect-[3/4] bg-[var(--color-primary)]/10 mb-6 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-24 h-24 bg-[var(--color-primary)]/20 rounded-full flex items-center justify-center">
-                        <svg className="w-12 h-12 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                      </div>
-                    </div>
+                  {/* Doctor Photo */}
+                  <div className="aspect-[3/4] mb-6 relative overflow-hidden">
+                    <img
+                      src={doctor.image}
+                      alt={`${doctor.name} - ${doctor.title}`}
+                      className="w-full h-full object-cover object-top"
+                    />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--color-primary)] to-transparent p-4">
                       <span className="text-[var(--color-secondary)] text-xs font-bold uppercase tracking-wider">
                         {doctor.specialty}

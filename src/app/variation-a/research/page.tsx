@@ -10,37 +10,37 @@ const researchAreas = [
   {
     name: "Clinical Trials",
     description: "Evaluating new treatments and therapies for cancer patients",
-    icon: "🔬",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
     studies: 45,
   },
   {
     name: "Genomics & Precision Medicine",
     description: "Understanding genetic factors that influence cancer development",
-    icon: "🧬",
+    image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=800&q=80",
     studies: 28,
   },
   {
     name: "Immunotherapy Research",
     description: "Developing immune-based approaches to fight cancer",
-    icon: "🛡️",
+    image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&q=80",
     studies: 32,
   },
   {
     name: "Drug Discovery",
     description: "Identifying and developing new anti-cancer compounds",
-    icon: "💊",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&q=80",
     studies: 18,
   },
   {
     name: "Epidemiology",
     description: "Studying cancer patterns and risk factors in populations",
-    icon: "📊",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1600&q=80",
     studies: 15,
   },
   {
     name: "Translational Research",
     description: "Bridging laboratory discoveries to clinical applications",
-    icon: "🔄",
+    image: "https://images.unsplash.com/photo-1581093804475-577d72e38aa0?w=800&q=80",
     studies: 22,
   },
 ];
@@ -108,10 +108,10 @@ const publications = [
 ];
 
 const researchers = [
-  { name: "Dr. Priya Sharma", role: "Director of Clinical Research", area: "Medical Oncology" },
-  { name: "Dr. Rajesh Kumar", role: "Head, Surgical Research", area: "Surgical Oncology" },
-  { name: "Dr. Anitha Rajan", role: "Lead, Radiation Research", area: "Radiation Oncology" },
-  { name: "Dr. Venkat Subramanian", role: "Chief Scientist", area: "Genomics Lab" },
+  { name: "Dr. Priya Sharma", role: "Director of Clinical Research", area: "Medical Oncology", image: "/sample_doc.png" },
+  { name: "Dr. Rajesh Kumar", role: "Head, Surgical Research", area: "Surgical Oncology", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" },
+  { name: "Dr. Anitha Rajan", role: "Lead, Radiation Research", area: "Radiation Oncology", image: "https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=400&q=80" },
+  { name: "Dr. Venkat Subramanian", role: "Chief Scientist", area: "Genomics Lab", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" },
 ];
 
 const partners = [
@@ -139,8 +139,15 @@ export default function ResearchPage() {
       <MockupNav variationId="a" currentPage="research" />
 
       {/* Hero Section */}
-      <section className="bg-[var(--color-primary)] text-white py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="relative bg-[var(--color-primary)] text-white py-16 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-15">
+          <img
+            src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1600&q=80"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4">
           <div className="max-w-3xl">
             <div className="h-1 w-16 bg-[var(--color-secondary)] mb-6" />
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -190,13 +197,21 @@ export default function ResearchPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {researchAreas.map((area, index) => (
-              <Card key={index} href="#" padding="lg">
-                <div className="text-4xl mb-4">{area.icon}</div>
-                <h3 className="text-lg font-bold text-[var(--color-primary)]">{area.name}</h3>
-                <p className="mt-2 text-sm text-[var(--color-text-light)]">{area.description}</p>
-                <p className="mt-4 text-xs font-semibold text-[var(--color-secondary)]">
-                  {area.studies} Active Studies
-                </p>
+              <Card key={index} href="#" padding="none">
+                <div className="h-40 overflow-hidden rounded-t-lg">
+                  <img
+                    src={area.image}
+                    alt={area.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-[var(--color-primary)]">{area.name}</h3>
+                  <p className="mt-2 text-sm text-[var(--color-text-light)]">{area.description}</p>
+                  <p className="mt-4 text-xs font-semibold text-[var(--color-secondary)]">
+                    {area.studies} Active Studies
+                  </p>
+                </div>
               </Card>
             ))}
           </div>
@@ -340,11 +355,12 @@ export default function ResearchPage() {
             {researchers.map((researcher, index) => (
               <Link key={index} href="/variation-a/doctor">
                 <Card padding="lg">
-                  {/* Photo placeholder */}
-                  <div className="w-20 h-20 mx-auto bg-[var(--color-primary)]/10 rounded-full flex items-center justify-center mb-4">
-                    <svg className="w-10 h-10 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
+                  <div className="w-20 h-20 mx-auto rounded-full overflow-hidden mb-4">
+                    <img
+                      src={researcher.image}
+                      alt={researcher.name}
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <div className="text-center">
                     <h3 className="font-bold text-[var(--color-text-dark)]">{researcher.name}</h3>

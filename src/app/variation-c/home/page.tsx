@@ -80,29 +80,33 @@ const services = [
     name: "Medical Oncology",
     description: "Advanced chemotherapy, immunotherapy, and targeted treatments",
     color: "from-blue-500 to-blue-600",
+    image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&q=80",
   },
   {
     name: "Surgical Oncology",
     description: "Minimally invasive and robotic surgical procedures",
     color: "from-teal-500 to-teal-600",
+    image: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=800&q=80",
   },
   {
     name: "Radiation Oncology",
     description: "Precision radiation therapy with IMRT and brachytherapy",
     color: "from-purple-500 to-purple-600",
+    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
   },
   {
     name: "Diagnostic Services",
     description: "Advanced imaging and laboratory diagnostics",
     color: "from-orange-500 to-orange-600",
+    image: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=800&q=80",
   },
 ];
 
 const doctors = [
-  { name: "Dr. Priya Sharma", title: "Head, Medical Oncology", specialty: "Breast Cancer", rating: 4.9 },
-  { name: "Dr. Rajesh Kumar", title: "Chief Surgeon", specialty: "GI Oncology", rating: 4.8 },
-  { name: "Dr. Anitha Rajan", title: "Radiation Oncologist", specialty: "Brain Tumors", rating: 4.9 },
-  { name: "Dr. Suresh Menon", title: "Pediatric Oncologist", specialty: "Leukemia", rating: 4.7 },
+  { name: "Dr. Priya Sharma", title: "Head, Medical Oncology", specialty: "Breast Cancer", rating: 4.9, image: "/sample_doc.png" },
+  { name: "Dr. Rajesh Kumar", title: "Chief Surgeon", specialty: "GI Oncology", rating: 4.8, image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" },
+  { name: "Dr. Anitha Rajan", title: "Radiation Oncologist", specialty: "Brain Tumors", rating: 4.9, image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" },
+  { name: "Dr. Suresh Menon", title: "Pediatric Oncologist", specialty: "Leukemia", rating: 4.7, image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&q=80" },
 ];
 
 const testimonials = [
@@ -186,17 +190,12 @@ export default function HomePage() {
 
             {/* Hero Image Placeholder */}
             <div className="relative hidden lg:block">
-              <div className="aspect-square bg-white/10 rounded-3xl backdrop-blur-sm p-8">
-                <div className="w-full h-full bg-white/5 rounded-2xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-4">
-                      <svg className="w-16 h-16 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                      </svg>
-                    </div>
-                    <p className="text-white/50">Hospital Image</p>
-                  </div>
-                </div>
+              <div className="aspect-square bg-white/10 rounded-3xl backdrop-blur-sm p-2 overflow-hidden">
+                <img
+                  src="https://www.vaidam.com/sites/default/files/cancer_institute_wia_adyar_chennai-home.jpg"
+                  alt="Cancer Institute (WIA) Adyar Campus"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
               {/* Floating Card */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4">
@@ -258,10 +257,12 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <Card key={index} href="/variation-c/department" variant="elevated" padding="lg" rounded="2xl">
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4`}>
-                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
+                <div className="h-36 -mx-6 -mt-6 mb-4 rounded-t-2xl overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-text-dark)]">{service.name}</h3>
                 <p className="mt-2 text-sm text-[var(--color-text-light)]">{service.description}</p>
@@ -345,14 +346,12 @@ export default function HomePage() {
               <Link key={index} href="/variation-c/doctor" className="group">
                 <Card variant="outlined" padding="md" rounded="2xl">
                   {/* Photo */}
-                  <div className="aspect-[4/5] bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl mb-4 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 bg-white/80 rounded-full flex items-center justify-center">
-                        <svg className="w-10 h-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                      </div>
-                    </div>
+                  <div className="aspect-[4/5] rounded-xl mb-4 relative overflow-hidden">
+                    <img
+                      src={doctor.image}
+                      alt={doctor.name}
+                      className="w-full h-full object-cover object-top"
+                    />
                     {/* Rating Badge */}
                     <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
                       <svg className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">

@@ -16,12 +16,12 @@ const featuredResearch = {
 };
 
 const researchAreas = [
-  { name: "Clinical Trials", count: 45, description: "Active studies evaluating new treatments" },
-  { name: "Genomics", count: 28, description: "Precision medicine and genetic research" },
-  { name: "Immunotherapy", count: 32, description: "Immune-based cancer treatments" },
-  { name: "Drug Discovery", count: 18, description: "Novel therapeutic compounds" },
-  { name: "Epidemiology", count: 15, description: "Population-based cancer studies" },
-  { name: "Translational", count: 22, description: "Lab to bedside research" },
+  { name: "Clinical Trials", count: 45, description: "Active studies evaluating new treatments", image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&q=80" },
+  { name: "Genomics", count: 28, description: "Precision medicine and genetic research", image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&q=80" },
+  { name: "Immunotherapy", count: 32, description: "Immune-based cancer treatments", image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=600&q=80" },
+  { name: "Drug Discovery", count: 18, description: "Novel therapeutic compounds", image: "https://images.unsplash.com/photo-1581093804475-577d72e38aa0?w=800&q=80" },
+  { name: "Epidemiology", count: 15, description: "Population-based cancer studies", image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80" },
+  { name: "Translational", count: 22, description: "Lab to bedside research", image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&q=80" },
 ];
 
 const clinicalTrials = [
@@ -73,10 +73,10 @@ const publications = [
 ];
 
 const researchers = [
-  { name: "Dr. Priya Sharma", role: "Director of Research", publications: 50 },
-  { name: "Dr. Venkat Subramanian", role: "Chief Scientist", publications: 85 },
-  { name: "Dr. Rajesh Kumar", role: "Surgical Research Lead", publications: 42 },
-  { name: "Dr. Anitha Rajan", role: "Radiation Research Lead", publications: 38 },
+  { name: "Dr. Priya Sharma", role: "Director of Research", publications: 50, image: "/sample_doc.png" },
+  { name: "Dr. Venkat Subramanian", role: "Chief Scientist", publications: 85, image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" },
+  { name: "Dr. Rajesh Kumar", role: "Surgical Research Lead", publications: 42, image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" },
+  { name: "Dr. Anitha Rajan", role: "Radiation Research Lead", publications: 38, image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" },
 ];
 
 export default function ResearchPage() {
@@ -92,8 +92,16 @@ export default function ResearchPage() {
       <MockupNav variationId="b" currentPage="research" />
 
       {/* Hero - Editorial Feature Story */}
-      <section className="bg-[var(--color-primary)]">
-        <div className="mx-auto max-w-7xl">
+      <section className="bg-[var(--color-primary)] relative overflow-hidden">
+        {/* Background image overlay */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1600&q=80"
+            alt=""
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
+        <div className="mx-auto max-w-7xl relative">
           <div className="grid lg:grid-cols-3">
             {/* Featured Research */}
             <div className="lg:col-span-2 p-8 lg:p-16 text-white">
@@ -156,29 +164,32 @@ export default function ResearchPage() {
             Research Areas
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-2 border-[var(--color-primary)]/10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {researchAreas.map((area, index) => (
-              <Card
-                key={index}
-                href="#"
-                variant="minimal"
-                padding="lg"
-                className={`border-[var(--color-primary)]/10 ${index < 3 ? 'border-b-2' : ''} ${index % 3 !== 2 ? 'lg:border-r-2' : ''} ${index % 2 === 0 && index < 4 ? 'md:border-r-2 lg:border-r-0' : ''}`}
-              >
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-lg font-bold text-[var(--color-primary)]">
-                      {area.name}
-                    </h3>
-                    <p className="text-[var(--color-text-light)] text-sm mt-1">
-                      {area.description}
-                    </p>
-                  </div>
-                  <span className="text-[var(--color-secondary)] font-bold text-2xl ml-4">
-                    {area.count}
-                  </span>
+              <Link key={index} href="#" className="group bg-white border-2 border-[var(--color-primary)]/10 hover:border-[var(--color-secondary)] transition-colors overflow-hidden">
+                <div className="h-36 overflow-hidden">
+                  <img
+                    src={area.image}
+                    alt={`${area.name} research`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-              </Card>
+                <div className="p-5">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="text-lg font-bold text-[var(--color-primary)]">
+                        {area.name}
+                      </h3>
+                      <p className="text-[var(--color-text-light)] text-sm mt-1">
+                        {area.description}
+                      </p>
+                    </div>
+                    <span className="text-[var(--color-secondary)] font-bold text-2xl ml-4">
+                      {area.count}
+                    </span>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -307,10 +318,12 @@ export default function ResearchPage() {
               <div className="space-y-6">
                 {researchers.map((researcher, index) => (
                   <Link key={index} href="/variation-b/doctor" className="flex items-center gap-4 group">
-                    <div className="w-14 h-14 bg-[var(--color-accent)] flex items-center justify-center flex-shrink-0">
-                      <svg className="w-7 h-7 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
+                    <div className="w-14 h-14 flex-shrink-0 overflow-hidden">
+                      <img
+                        src={researcher.image}
+                        alt={researcher.name}
+                        className="w-full h-full object-cover object-top"
+                      />
                     </div>
                     <div>
                       <h4 className="font-bold text-[var(--color-text-dark)] group-hover:text-[var(--color-primary)] transition-colors">

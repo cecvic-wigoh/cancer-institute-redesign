@@ -4,7 +4,7 @@ interface CardProps {
   children: React.ReactNode;
   href?: string;
   className?: string;
-  padding?: "sm" | "md" | "lg";
+  padding?: "none" | "sm" | "md" | "lg";
   hover?: boolean;
 }
 
@@ -16,6 +16,7 @@ export default function Card({
   hover = true,
 }: CardProps) {
   const paddingStyles = {
+    none: "p-0",
     sm: "p-4",
     md: "p-6",
     lg: "p-8",

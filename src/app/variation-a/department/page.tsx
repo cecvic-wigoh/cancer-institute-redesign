@@ -105,12 +105,12 @@ const oncologistRoles = [
 ];
 
 const teamMembers = [
-  { name: "Dr. Priya Sharma", title: "Head of Department", experience: "25 years" },
-  { name: "Dr. Arun Krishnan", title: "Senior Consultant", experience: "18 years" },
-  { name: "Dr. Lakshmi Venkat", title: "Consultant", experience: "12 years" },
-  { name: "Dr. Mohan Reddy", title: "Consultant, Pediatric Oncology", experience: "10 years" },
-  { name: "Dr. Sita Patel", title: "Associate Consultant", experience: "8 years" },
-  { name: "Dr. Vijay Kumar", title: "Associate Consultant", experience: "6 years" },
+  { name: "Dr. Priya Sharma", title: "Head of Department", experience: "25 years", image: "/sample_doc.png" },
+  { name: "Dr. Arun Krishnan", title: "Senior Consultant", experience: "18 years", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" },
+  { name: "Dr. Lakshmi Venkat", title: "Consultant", experience: "12 years", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" },
+  { name: "Dr. Mohan Reddy", title: "Consultant, Pediatric Oncology", experience: "10 years", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" },
+  { name: "Dr. Sita Patel", title: "Associate Consultant", experience: "8 years", image: "https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=400&q=80" },
+  { name: "Dr. Vijay Kumar", title: "Associate Consultant", experience: "6 years", image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&q=80" },
 ];
 
 const relatedDepartments = [
@@ -426,7 +426,7 @@ export default function DepartmentPage() {
                 <Card padding="md">
                   <div className="flex items-center gap-4">
                     <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden">
-                      <img src="/sample_doc.png" alt={m.name} className="w-full h-full object-cover object-top" />
+                      <img src={m.image} alt={m.name} className="w-full h-full object-cover object-top" />
                     </div>
                     <div>
                       <h3 className="font-bold text-[var(--color-text-dark)]">{m.name}</h3>

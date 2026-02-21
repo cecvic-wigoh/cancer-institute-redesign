@@ -111,10 +111,10 @@ const achievements = [
 ];
 
 const teamMembers = [
-  { name: "Dr. Priya Sharma", title: "Head of Department", experience: "25 years", specialty: "Breast Cancer" },
-  { name: "Dr. Arun Krishnan", title: "Senior Consultant", experience: "18 years", specialty: "Lung Cancer" },
-  { name: "Dr. Lakshmi Venkat", title: "Consultant", experience: "12 years", specialty: "GI Oncology" },
-  { name: "Dr. Mohan Reddy", title: "Consultant", experience: "10 years", specialty: "Pediatric Oncology" },
+  { name: "Dr. Priya Sharma", title: "Head of Department", experience: "25 years", specialty: "Breast Cancer", image: "/sample_doc.png" },
+  { name: "Dr. Arun Krishnan", title: "Senior Consultant", experience: "18 years", specialty: "Lung Cancer", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" },
+  { name: "Dr. Lakshmi Venkat", title: "Consultant", experience: "12 years", specialty: "GI Oncology", image: "https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=400&q=80" },
+  { name: "Dr. Mohan Reddy", title: "Consultant", experience: "10 years", specialty: "Pediatric Oncology", image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&q=80" },
 ];
 
 /* ───── COMPONENT ───── */
@@ -423,7 +423,7 @@ export default function DepartmentPage() {
               <Link key={i} href="/variation-b/doctor" className="group">
                 <Card variant="default" padding="md">
                   <div className="aspect-square mb-4 overflow-hidden">
-                    <img src="/sample_doc.png" alt={m.name} className="w-full h-full object-cover object-top" />
+                    <img src={m.image} alt={`${m.name} - ${m.title}`} className="w-full h-full object-cover object-top" />
                   </div>
                   <h3 className="font-bold text-[var(--color-text-dark)] group-hover:text-[var(--color-primary)] transition-colors">{m.name}</h3>
                   <p className="text-sm text-[var(--color-text-light)]">{m.title}</p>

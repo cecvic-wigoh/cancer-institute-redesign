@@ -118,10 +118,10 @@ const whyChooseUs = [
 ];
 
 const featuredDoctors = [
-  { name: "Dr. Priya Sharma", title: "Head, Medical Oncology", specialty: "Breast Cancer" },
-  { name: "Dr. Rajesh Kumar", title: "Senior Surgical Oncologist", specialty: "GI Cancers" },
-  { name: "Dr. Anitha Rajan", title: "Radiation Oncologist", specialty: "Head & Neck" },
-  { name: "Dr. Suresh Menon", title: "Pediatric Oncologist", specialty: "Leukemia" },
+  { name: "Dr. Priya Sharma", title: "Head, Medical Oncology", specialty: "Breast Cancer", image: "/sample_doc.png" },
+  { name: "Dr. Rajesh Kumar", title: "Senior Surgical Oncologist", specialty: "GI Cancers", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" },
+  { name: "Dr. Anitha Rajan", title: "Radiation Oncologist", specialty: "Head & Neck", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" },
+  { name: "Dr. Suresh Menon", title: "Pediatric Oncologist", specialty: "Leukemia", image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&q=80" },
 ];
 
 const researchHighlights = [
@@ -129,16 +129,19 @@ const researchHighlights = [
     title: "Immunotherapy Breakthrough in Triple-Negative Breast Cancer",
     date: "January 2026",
     category: "Clinical Research",
+    image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&q=80",
   },
   {
     title: "New Biomarker Discovery for Early Lung Cancer Detection",
     date: "December 2025",
     category: "Genomics",
+    image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&q=80",
   },
   {
     title: "AI-Powered Diagnostic Tool Improves Accuracy by 30%",
     date: "November 2025",
     category: "Technology",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
   },
 ];
 
@@ -163,7 +166,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative bg-[var(--color-primary)] text-white">
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary)]/80">
-          <div className="absolute inset-0 bg-[url('/placeholder-hero.jpg')] bg-cover bg-center opacity-20" />
+          <div className="absolute inset-0 bg-[url('https://www.vaidam.com/sites/default/files/cancer_institute_wia_adyar_chennai-home.jpg')] bg-cover bg-center opacity-20" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 py-20 md:py-28">
           <div className="max-w-2xl">
@@ -325,15 +328,12 @@ export default function HomePage() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-[4/3] bg-[var(--color-primary)]/10 rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 mx-auto bg-[var(--color-primary)]/20 rounded-full flex items-center justify-center mb-4">
-                    <svg className="w-12 h-12 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-[var(--color-text-light)]">Hospital/Facility Image</p>
-                </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden">
+                <img
+                  src="https://www.vaidam.com/sites/default/files/hospitals/cancer_institute_wia_adyar_chennai-min.jpg"
+                  alt="Cancer Institute (WIA) Adyar Campus"
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
               {/* Floating Stats Card */}
               <div className="absolute -bottom-6 -right-6 bg-white rounded-lg shadow-xl p-6 max-w-[200px]">
@@ -363,12 +363,12 @@ export default function HomePage() {
             {featuredDoctors.map((doctor, index) => (
               <Link key={index} href="/variation-a/doctor" className="group">
                 <Card hover padding="sm">
-                  <div className="aspect-square bg-[var(--color-accent)] rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                    <div className="w-20 h-20 bg-[var(--color-primary)]/20 rounded-full flex items-center justify-center">
-                      <svg className="w-10 h-10 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                    </div>
+                  <div className="aspect-square bg-[var(--color-accent)] rounded-lg mb-4 overflow-hidden">
+                    <img
+                      src={doctor.image}
+                      alt={doctor.name}
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <h3 className="font-bold text-[var(--color-text-dark)] group-hover:text-[var(--color-primary)] transition-colors">
                     {doctor.name}
@@ -438,12 +438,21 @@ export default function HomePage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {researchHighlights.map((item, index) => (
-              <div key={index} className="bg-white/10 rounded-lg p-6 backdrop-blur-sm hover:bg-white/15 transition-colors">
-                <span className="text-xs font-semibold text-[var(--color-secondary)] uppercase tracking-wider">
-                  {item.category}
-                </span>
-                <h3 className="mt-2 text-lg font-bold leading-snug">{item.title}</h3>
-                <p className="mt-3 text-sm text-white/60">{item.date}</p>
+              <div key={index} className="bg-white/10 rounded-lg overflow-hidden backdrop-blur-sm hover:bg-white/15 transition-colors">
+                <div className="h-40 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover opacity-70"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="text-xs font-semibold text-[var(--color-secondary)] uppercase tracking-wider">
+                    {item.category}
+                  </span>
+                  <h3 className="mt-2 text-lg font-bold leading-snug">{item.title}</h3>
+                  <p className="mt-3 text-sm text-white/60">{item.date}</p>
+                </div>
               </div>
             ))}
           </div>

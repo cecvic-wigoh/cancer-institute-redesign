@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import Link from "next/link";
 import MockupNav from "@/components/MockupNav";
 import Button from "@/components/variation-c/Button";
@@ -38,19 +39,58 @@ const conditionGroups = [
   },
 ];
 
+const treatmentIcons: Record<string, ReactNode> = {
+  Chemotherapy: (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+  ),
+  "Targeted Therapy": (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+  ),
+  Immunotherapy: (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+  ),
+  "Hormonal Therapy": (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+  ),
+  "Oral Anticancer Medications": (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+  ),
+  "Stem Cell Transplantation": (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+  ),
+  "CAR-T Cell Therapy": (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+  ),
+  "Precision Medicine": (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" /></svg>
+  ),
+  "Palliative Care": (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+  ),
+  "Supportive Care": (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+  ),
+  "Survivorship Care": (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+  ),
+  "Clinical Trials": (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+  ),
+};
+
 const treatmentOptions = [
-  { name: "Chemotherapy", desc: "Conventional systemic drugs to destroy cancer cells", icon: "💉" },
-  { name: "Targeted Therapy", desc: "Drugs targeting specific molecular changes in cancer cells", icon: "🎯" },
-  { name: "Immunotherapy", desc: "Helping the immune system recognise and fight cancer", icon: "🛡️" },
-  { name: "Hormonal Therapy", desc: "Blocking hormones that fuel certain cancers", icon: "💊" },
-  { name: "Oral Anticancer Medications", desc: "Tablet-based cancer treatments for convenient care", icon: "🔵" },
-  { name: "Stem Cell Transplantation", desc: "Replacing damaged marrow with healthy stem cells", icon: "🧬" },
-  { name: "CAR-T Cell Therapy", desc: "Engineering patient's immune cells to attack cancer", icon: "🔬" },
-  { name: "Precision Medicine", desc: "Treatment based on genetic profiling of the tumor", icon: "⚕️" },
-  { name: "Palliative Care", desc: "Comprehensive symptom relief and quality of life support", icon: "🤝" },
-  { name: "Supportive Care", desc: "Managing treatment side effects and improving comfort", icon: "💛" },
-  { name: "Survivorship Care", desc: "Long-term follow-up and rehabilitation after treatment", icon: "🌱" },
-  { name: "Clinical Trials", desc: "Access to cutting-edge experimental treatments", icon: "📋" },
+  { name: "Chemotherapy", desc: "Conventional systemic drugs to destroy cancer cells" },
+  { name: "Targeted Therapy", desc: "Drugs targeting specific molecular changes in cancer cells" },
+  { name: "Immunotherapy", desc: "Helping the immune system recognise and fight cancer" },
+  { name: "Hormonal Therapy", desc: "Blocking hormones that fuel certain cancers" },
+  { name: "Oral Anticancer Medications", desc: "Tablet-based cancer treatments for convenient care" },
+  { name: "Stem Cell Transplantation", desc: "Replacing damaged marrow with healthy stem cells" },
+  { name: "CAR-T Cell Therapy", desc: "Engineering patient's immune cells to attack cancer" },
+  { name: "Precision Medicine", desc: "Treatment based on genetic profiling of the tumor" },
+  { name: "Palliative Care", desc: "Comprehensive symptom relief and quality of life support" },
+  { name: "Supportive Care", desc: "Managing treatment side effects and improving comfort" },
+  { name: "Survivorship Care", desc: "Long-term follow-up and rehabilitation after treatment" },
+  { name: "Clinical Trials", desc: "Access to cutting-edge experimental treatments" },
 ];
 
 const diagnosticTechniques = [
@@ -111,10 +151,10 @@ const stats = [
 ];
 
 const team = [
-  { name: "Dr. Priya Sharma", title: "Head of Department", years: "25 years", specialty: "Breast Cancer" },
-  { name: "Dr. Arun Krishnan", title: "Senior Consultant", years: "18 years", specialty: "Lung Cancer" },
-  { name: "Dr. Lakshmi Venkat", title: "Consultant", years: "12 years", specialty: "GI Oncology" },
-  { name: "Dr. Mohan Reddy", title: "Consultant", years: "10 years", specialty: "Pediatric Oncology" },
+  { name: "Dr. Priya Sharma", title: "Head of Department", years: "25 years", specialty: "Breast Cancer", image: "/sample_doc.png" },
+  { name: "Dr. Arun Krishnan", title: "Senior Consultant", years: "18 years", specialty: "Lung Cancer", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" },
+  { name: "Dr. Lakshmi Venkat", title: "Consultant", years: "12 years", specialty: "GI Oncology", image: "https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=400&q=80" },
+  { name: "Dr. Mohan Reddy", title: "Consultant", years: "10 years", specialty: "Pediatric Oncology", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" },
 ];
 
 /* ───── COMPONENT ───── */
@@ -284,7 +324,9 @@ export default function DepartmentPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {treatmentOptions.map((t, i) => (
               <Card key={i} variant="outlined" padding="md" rounded="xl" className="hover:shadow-md transition-shadow">
-                <div className="text-2xl mb-2">{t.icon}</div>
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-accent)] flex items-center justify-center text-[var(--color-primary)] mb-2">
+                  {treatmentIcons[t.name]}
+                </div>
                 <h3 className="font-bold text-[var(--color-text-dark)]">{t.name}</h3>
                 <p className="text-xs text-[var(--color-text-light)] mt-1">{t.desc}</p>
               </Card>
@@ -412,7 +454,7 @@ export default function DepartmentPage() {
               <Link key={i} href="/variation-c/doctor" className="group">
                 <Card variant="outlined" padding="md" rounded="2xl">
                   <div className="aspect-square rounded-xl mb-4 overflow-hidden">
-                    <img src="/sample_doc.png" alt={m.name} className="w-full h-full object-cover object-top" />
+                    <img src={m.image} alt={m.name} className="w-full h-full object-cover object-top" />
                   </div>
                   <h3 className="font-bold text-[var(--color-text-dark)] group-hover:text-[var(--color-primary)] transition-colors">{m.name}</h3>
                   <p className="text-sm text-[var(--color-text-light)]">{m.title}</p>
